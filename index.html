@@ -1,138 +1,60 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Beka w Pigułce</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-  <style>
-    /* Dodatkowe style dla nawigacji i sekcji */
-    .section { display: none; }
-    .section.active { display: block; }
-    
-    .nav a {
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 20px;
-      transition: all 0.3s;
-    }
-    .nav a.active {
-      background: rgba(255,255,255,0.2);
-      color: #ffd700;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beka w Pigułce</title>
 
-    .meme-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .meme-card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-      text-align: center;
-      padding: 8px;
-    }
-    .meme-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-  </style>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="background"></div>
 
-  <div class="container">
-    <!-- Top Navigation -->
-    <header>
-      <div class="top-bar">
-        <div class="logo">
-          <span class="emoji">😂</span>
-          <span class="title">Beka</span>
-        </div>
-        <nav class="nav">
-          <a onclick="switchTab(0)" class="active">Home</a>
-          <a onclick="switchTab(1)">Memy</a>
-          <a onclick="switchTab(2)">Zagadki</a>
-          <a onclick="switchTab(3)">Testy</a>
-        </nav>
-      </div>
-    </header>
+<!-- NAV -->
+<div class="nav">
+    😂 Beka
+</div>
 
-    <!-- HOME -->
-    <section id="home" class="section active">
-      <div class="hero">
-        <h1>BEKA<br><span class="highlight">W PIGUŁCE</span></h1>
-        <p class="subtitle">TWOJA CODZIENNA DAWKA ŚMIECHU 🐵</p>
-        <div class="monkey">🐵</div>
-        <button class="btn-primary" onclick="switchTab(1)">
-          <span class="emoji">😂</span> Zobacz memy
-        </button>
-      </div>
+<!-- HERO -->
+<section class="hero">
+    <img src="assets/banner.jpg" class="banner">
+    
+    <h1>BEKA W PIGUŁCE</h1>
+    <p>Twoja codzienna dawka śmiechu 🔥</p>
 
-      <div class="cards">
-        <div class="card" onclick="switchTab(1)">
-          <h3>😂 Najnowsze memy</h3>
-          <p>Świeże wrzutki pod viral.</p>
-          <button class="btn-yellow">Wejdź</button>
-        </div>
-        <div class="card" onclick="switchTab(2)">
-          <h3>🧠 Zagadki</h3>
-          <p>Sprawdź swój mózg</p>
-          <button class="btn-purple">Start</button>
-        </div>
-        <div class="card" onclick="switchTab(3)">
-          <h3>😂 Testy</h3>
-          <p>Kto jest Twoim ziomkiem?</p>
-          <button class="btn-yellow">Wejdź</button>
-        </div>
-        <div class="card" onclick="switchTab(3)">
-          <h3>🔥 Testy</h3>
-          <p>Kto jest Twoim ziomkiem?</p>
-          <button class="btn-orange">Sprawdź</button>
-        </div>
-      </div>
+    <a href="#" class="main-btn">😂 Zobacz memy</a>
+</section>
 
-      <div class="facebook">
-        <h2>😂 Dołącz do nas na Facebooku</h2>
-        <button class="btn-fb" onclick="window.open('https://www.facebook.com', '_blank')">
-          <i class="fab fa-facebook-f"></i> Obserwuj
-        </button>
-      </div>
-    </section>
+<!-- GRID -->
+<section class="grid">
 
-    <!-- MEMY -->
-    <section id="memy" class="section">
-      <h2 style="text-align:center; margin:20px 0;">😂 Najnowsze Memy</h2>
-      <div class="meme-grid" id="memeGrid">
-        <!-- Memes will be added by JS -->
-      </div>
-    </section>
+    <div class="card">
+        <h3>😂 Najnowsze memy</h3>
+        <p>Świeże wrzutki pod viral</p>
+        <button class="btn">Wejdź</button>
+    </div>
 
-    <!-- ZAGADKI -->
-    <section id="zagadki" class="section">
-      <h2 style="text-align:center; margin:20px 0;">🧠 Zagadki</h2>
-      <div class="card" style="margin:15px auto; max-width:400px;">
-        <h3 id="riddleQuestion">Ładowanie zagadki...</h3>
-        <button onclick="showAnswer()" style="margin-top:15px;">Pokaż odpowiedź</button>
-        <p id="riddleAnswer" style="margin-top:15px; display:none; font-weight:bold;"></p>
-        <button onclick="nextRiddle()" style="margin-top:10px;">Następna zagadka</button>
-      </div>
-    </section>
+    <div class="card">
+        <h3>🧩 Zagadki</h3>
+        <p>Sprawdź swój mózg</p>
+        <button class="btn purple">Start</button>
+    </div>
 
-    <!-- TESTY -->
-    <section id="testy" class="section">
-      <h2 style="text-align:center; margin:20px 0;">🔥 Testy</h2>
-      <div class="card" style="margin:15px auto; max-width:400px; text-align:center;">
-        <h3>Kto jest Twoim prawdziwym ziomkiem?</h3>
-        <p style="margin:20px 0;">Zacznij test (prosty quiz 3 pytania)</p>
-        <button onclick="startQuiz()" class="btn-orange" style="padding:15px 40px; font-size:1.2rem;">Rozpocznij Test</button>
-      </div>
-    </section>
-  </div>
+    <div class="card">
+        <h3>🔥 Testy</h3>
+        <p>Kto jest Twoim ziomkiem?</p>
+        <button class="btn orange">Sprawdź</button>
+    </div>
 
-  <script src="script.js"></script>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>😂 Dołącz do nas na Facebooku</h2>
+    <button class="fb-btn">📘 Obserwuj</button>
+</section>
+
+<script src="js/app.js"></script>
 </body>
 </html>
