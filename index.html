@@ -1,55 +1,86 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beka w Pigułce</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beka w Pigułce</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Tło z gradientem i gwiazdkami -->
+  <div class="background"></div>
 
-<nav>
-    <div class="logo">😂 Beka</div>
-    <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="memy.html">Memy</a>
-        <a href="zagadki.html">Zagadki</a>
-        <a href="testy.html">Testy</a>
-    </div>
-</nav>
+  <div class="container">
+    <!-- Nagłówek -->
+    <header>
+      <div class="top-bar">
+        <div class="logo">
+          <span class="emoji">😂</span>
+          <span class="title">Beka</span>
+        </div>
+        <nav>
+          <a href="#" class="active">Home</a>
+          <a href="#">Memy</a>
+          <a href="#">Zagadki</a>
+          <a href="#">Testy</a>
+        </nav>
+      </div>
+    </header>
 
-<header class="hero">
-    <h1>🔥 Beka w Pigułce</h1>
-    <p>Codzienna dawka śmiechu, testów i chaosu</p>
-    <a href="memy.html" class="btn">😂 Zobacz memy</a>
-</header>
+    <!-- Baner główny -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>BEKA<br><span class="highlight">W PIGUŁCE</span></h1>
+        <p class="subtitle">TWOJA CODZIENNA DAWKA ŚMIECHU</p>
+        
+        <div class="monkey-container">
+          <!-- Tu możesz wstawić obrazek małpki lub użyć emoji/ikony -->
+          <div class="monkey">🐵</div>
+        </div>
 
-<section class="container grid">
-    <div class="card">
+        <button class="btn-primary" onclick="showMemes()">
+          <span class="emoji">😂</span> Zobacz memy
+        </button>
+      </div>
+    </section>
+
+    <!-- Kafelki -->
+    <section class="cards">
+      <div class="card">
         <h3>😂 Najnowsze memy</h3>
-        <p>Świeże wrzutki pod viral</p>
-        <a href="memy.html" class="btn">Wejdź</a>
-    </div>
+        <p>Świeże wrzutki pod viral.</p>
+        <button class="btn-yellow" onclick="showMemes()">Wejdź</button>
+      </div>
 
-    <div class="card">
-        <h3>🧩 Zagadki</h3>
+      <div class="card">
+        <h3>🧠 Zagadki</h3>
         <p>Sprawdź swój mózg</p>
-        <a href="zagadki.html" class="btn">Start</a>
-    </div>
+        <button class="btn-purple" onclick="startRiddles()">Start</button>
+      </div>
 
-    <div class="card">
+      <div class="card">
+        <h3>😂 Testy</h3>
+        <p>Kto jest Twoim ziomkiem?</p>
+        <button class="btn-yellow" onclick="startTest()">Wejdź</button>
+      </div>
+
+      <div class="card">
         <h3>🔥 Testy</h3>
         <p>Kto jest Twoim ziomkiem?</p>
-        <a href="testy.html" class="btn">Sprawdź</a>
-    </div>
-</section>
+        <button class="btn-orange" onclick="startTest()">Sprawdź</button>
+      </div>
+    </section>
 
-<section class="cta">
-    <h2>📲 Dołącz do nas na Facebooku</h2>
-    <a href="#" class="btn big">Obserwuj</a>
-</section>
+    <!-- Facebook -->
+    <section class="facebook">
+      <h2>😂 Dołącz do nas na Facebooku</h2>
+      <button class="btn-fb" onclick="window.open('https://facebook.com', '_blank')">
+        <i class="fab fa-facebook"></i> Obserwuj
+      </button>
+    </section>
+  </div>
 
-<script src="js/app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
